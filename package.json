@@ -20,7 +20,10 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.6.3",
+    "@commitlint/config-conventional": "^17.6.3",
     "autoprefixer": "^10.4.14",
+    "husky": "^8.0.3",
     "postcss": "^8.4.23",
     "tailwindcss": "^3.3.2"
   }
