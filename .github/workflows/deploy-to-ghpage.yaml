@@ -59,9 +59,7 @@ jobs:
         run: pnpm install
       - name: Build and Export with Next.js
         env:
-          # NEXT_PUBLIC_DOCSEARCH_APP_ID: ${{ secrets.DOCSEARCH_APP_ID }}
-          # NEXT_PUBLIC_DOCSEARCH_API_KEY: ${{ secrets.DOCSEARCH_API_KEY }}
-          # NEXT_PUBLIC_DOCSEARCH_INDEX_NAME: jasonlam
+          NODE_ENV: production
         run: pnpm export
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
