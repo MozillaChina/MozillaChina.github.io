@@ -53,7 +53,7 @@ jobs:
       - name: Build and Export with Next.js
         env:
           NODE_ENV: production
-        run: pnpm export
+        run: pnpm build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
