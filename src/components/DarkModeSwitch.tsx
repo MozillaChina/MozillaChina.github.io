@@ -1,22 +1,10 @@
-import { Switch } from '@headlessui/react';
-import { useState } from 'react';
+import { Switch } from '@headlessui/react'
+import { useIsDark } from '@/hooks/useDarkMode'
+import { useDarkModeSwitch } from '@/hooks/useDarkMode'
 
 export const DarkModeSwitch = () => {
-  const [darkMode, setDarkMode] = useState(false);
-  const isDark = darkMode;
-  const toggle = () => {
-    console.log(darkMode);
-    setDarkMode((preDarkMode) => !preDarkMode);
-    console.log(darkMode);
-    const $el = document.documentElement;
-    if (darkMode) {
-      $el.classList.remove('light');
-      $el.classList.add('dark');
-    } else {
-      $el.classList.remove('dark');
-      $el.classList.add('light');
-    }
-  };
+  const isDark = useIsDark()
+  const toggle = useDarkModeSwitch()
   return (
     <Switch
       onClick={toggle}
