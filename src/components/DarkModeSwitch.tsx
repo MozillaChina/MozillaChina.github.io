@@ -1,10 +1,10 @@
-import { Switch } from '@headlessui/react'
-import { useIsDark } from '@/hooks/useDarkMode'
-import { useDarkModeSwitch } from '@/hooks/useDarkMode'
+import { Switch } from '@headlessui/react';
+import { useIsDark } from '@/hooks/useDarkMode';
+import { useDarkModeSwitch } from '@/hooks/useDarkMode';
 
 export const DarkModeSwitch = () => {
-  const isDark = useIsDark()
-  const toggle = useDarkModeSwitch()
+  const isDark = useIsDark();
+  const toggle = useDarkModeSwitch();
   return (
     <Switch
       onClick={toggle}
