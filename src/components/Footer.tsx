@@ -1,6 +1,7 @@
-import logo from '@/assets/logo.jpeg';
-import { IconBrandGithub, IconBrandTelegram } from '@tabler/icons-react';
-import Image from 'next/image';
+import logo from '@/assets/logo.jpeg'
+import { IconBrandGithub, IconBrandTelegram } from '@tabler/icons-react'
+import { DarkModeSwitch } from './DarkModeSwitch'
+import Image from 'next/image'
 
 const navigation = {
   company: [
@@ -27,46 +28,47 @@ const navigation = {
       icon: IconBrandTelegram,
     },
   ],
-};
+}
 
 const Footer = () => {
   return (
-    <footer className="" aria-labelledby="footer-heading">
-      <h2 id="footer-heading" className="sr-only">
+    <footer className='' aria-labelledby='footer-heading'>
+      <h2 id='footer-heading' className='sr-only'>
         Footer
       </h2>
-      <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
-        <div className="md:grid md:grid-cols-2 md:gap-8 lg:gap-20">
-          <div className="space-y-8">
-            <Image className='h-7 w-auto' alt="logo" src={logo} />
-            <p className="text-sm leading-6 text-gray-600 dark:text-gray-300">
+      <div className='mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32'>
+        <div className='md:grid md:grid-cols-2 md:gap-8 lg:gap-20'>
+          <div className='space-y-8'>
+            <Image className='h-7 w-auto' alt='logo' src={logo} />
+            <p className='text-sm leading-6 text-gray-600 dark:text-gray-300'>
               我们致力于为构建一个更加多元、开放、公平的互联网贡献自己的力量。欢迎了解我们并成为我们的一员。
+              <i className='icon-[mingcute--sun-line]' />
             </p>
-            <div className="flex space-x-6">
+            <div className='flex space-x-6'>
               {navigation.social.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-gray-500 hover:text-gray-400"
+                  className='text-gray-500 hover:text-gray-400'
                 >
-                  <span className="sr-only">{item.name}</span>
-                  <item.icon className="h-6 w-6" aria-hidden="true" />
+                  <span className='sr-only'>{item.name}</span>
+                  <item.icon className='h-6 w-6' aria-hidden='true' />
                 </a>
               ))}
             </div>
           </div>
 
-          <div className="mt-16 grid grid-cols-2 gap-8 md:mt-0">
+          <div className='mt-16 grid grid-cols-2 gap-8 md:mt-0'>
             <div>
-              <h3 className="text-sm font-semibold leading-6 dark:text-white">
+              <h3 className='text-sm font-semibold leading-6 dark:text-white'>
                 Mozilla 产品
               </h3>
-              <ul role="list" className="mt-6 space-y-4">
+              <ul role='list' className='mt-6 space-y-4'>
                 {navigation.company.map((item) => (
                   <li key={item.name}>
                     <a
                       href={item.href}
-                      className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+                      className='text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white'
                     >
                       {item.name}
                     </a>
@@ -74,16 +76,16 @@ const Footer = () => {
                 ))}
               </ul>
             </div>
-            <div className="md:mt-0">
-              <h3 className="text-sm font-semibold leading-6 dark:text-white">
+            <div className='md:mt-0'>
+              <h3 className='text-sm font-semibold leading-6 dark:text-white'>
                 友情链接
               </h3>
-              <ul role="list" className="mt-6 space-y-4">
+              <ul role='list' className='mt-6 space-y-4'>
                 {navigation.link.map((item) => (
                   <li key={item.name}>
                     <a
                       href={item.href}
-                      className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+                      className='text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white'
                     >
                       {item.name}
                     </a>
@@ -93,14 +95,15 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="mt-16 border-t border-gray-900/10 dark:border-white/10 pt-8 sm:mt-20 lg:mt-24">
-          <p className="text-xs leading-5 text-gray-400">
+        <div className='flex justify-between mt-16 border-t border-gray-900/10 dark:border-white/10 pt-8 sm:mt-20 lg:mt-24'>
+          <p className='text-xs leading-5 text-gray-400'>
             &copy; {new Date().getFullYear()} Mozilla 中国社区
           </p>
+          <DarkModeSwitch />
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer
