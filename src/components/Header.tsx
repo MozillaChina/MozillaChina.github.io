@@ -25,7 +25,7 @@ const Header = () => {
             <span className="sr-only">Your Company</span>
             <Image className="h-8 w-auto" alt="logo" src={logo} />
           </a>
-          <p className='text-xl'>Mozilla 中国社区</p>
+          <p className="text-xl">Mozilla 中国社区</p>
         </div>
         {/* <div className="flex sm:hidden">
           <button

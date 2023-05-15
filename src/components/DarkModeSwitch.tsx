@@ -1,22 +1,22 @@
-import { Switch } from '@headlessui/react'
-import { useState } from 'react'
+import { Switch } from '@headlessui/react';
+import { useState } from 'react';
 
 export const DarkModeSwitch = () => {
-  const [darkMode, setDarkMode] = useState(false)
-  const isDark = darkMode
+  const [darkMode, setDarkMode] = useState(false);
+  const isDark = darkMode;
   const toggle = () => {
-    console.log(darkMode)
-    setDarkMode((preDarkMode) => !preDarkMode)
-    console.log(darkMode)
-    const $el = document.documentElement
+    console.log(darkMode);
+    setDarkMode((preDarkMode) => !preDarkMode);
+    console.log(darkMode);
+    const $el = document.documentElement;
     if (darkMode) {
-      $el.classList.remove('light')
-      $el.classList.add('dark')
+      $el.classList.remove('light');
+      $el.classList.add('dark');
     } else {
-      $el.classList.remove('dark')
-      $el.classList.add('light')
+      $el.classList.remove('dark');
+      $el.classList.add('light');
     }
-  }
+  };
   return (
     <Switch
       onClick={toggle}
@@ -32,10 +32,10 @@ export const DarkModeSwitch = () => {
       ></span>
 
       {isDark ? (
-        <i className='icon-[mingcute--moon-line] translate-x-2 scale-75' />
+        <i className="icon-[mingcute--moon-line] translate-x-2 scale-75" />
       ) : (
-        <i className='icon-[mingcute--sun-line] scale-75 -translate-x-3' />
+        <i className="icon-[mingcute--sun-line] scale-75 -translate-x-3" />
       )}
     </Switch>
-  )
-}
+  );
+};

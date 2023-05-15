@@ -6,6 +6,6 @@ body {
   @apply break-words;
 }
 
-html.dark{
+html.dark {
   color-scheme: dark;
 }
