@@ -1,26 +1,26 @@
-import { getStorage, setStorage } from '@/lib/storage'
-import { isClientSide } from '@/lib/utils'
-import { useEffect, useRef, useState } from 'react'
-import { create } from 'zustand'
+import { getStorage, setStorage } from '@/lib/storage';
+import { isClientSide } from '@/lib/utils';
+import { useEffect, useRef, useState } from 'react';
+import { create } from 'zustand';
 
 interface IMediaDarkStore {
-  darkMode: boolean
-  toggle: () => void
+  darkMode: boolean;
+  toggle: () => void;
 }
 
 interface IDarkModeConfig {
-  classNameDark?: string // Dark Mode. Default = dark
-  classNameLight?: string // Light Mode. Default = light
-  el?: HTMLElement | undefined // Get document to apply dark mode.
-  storageKey?: string // Save to localStorage. Defalut = darkMode
+  classNameDark?: string; // Dark Mode. Default = dark
+  classNameLight?: string; // Light Mode. Default = light
+  el?: HTMLElement | undefined; // Get document to apply dark mode.
+  storageKey?: string; // Save to localStorage. Defalut = darkMode
 }
 
 const useMediaDarkStore = create<IMediaDarkStore>(() => ({
   darkMode: false,
   toggle: () => void 0,
-}))
+}));
 
-const darkModeKey = 'darkMode'
+const darkModeKey = 'darkMode';
 export const useDarkMode = (
   initialState: boolean | undefined,
   options: IDarkModeConfig
@@ -30,58 +30,58 @@ export const useDarkMode = (
     classNameLight = 'light',
     storageKey = darkModeKey,
     el,
-  } = options
+  } = options;
 
-  const [darkMode, setDarkMode] = useState(initialState)
+  const [darkMode, setDarkMode] = useState(initialState);
 
   // Present, check localStorage and dark Media
   useEffect(() => {
-    const presentedDarkMode = storageKey ? getStorage(storageKey) : undefined
-    console.log(presentedDarkMode)
+    const presentedDarkMode = storageKey ? getStorage(storageKey) : undefined;
+    console.log(presentedDarkMode);
     if (presentedDarkMode !== undefined) {
       if (presentedDarkMode === 'true') {
-        setDarkMode(true)
+        setDarkMode(true);
       } else if (presentedDarkMode === 'false') {
-        setDarkMode(false)
+        setDarkMode(false);
       }
     } else if (typeof initialState === 'undefined') {
-      setDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches)
+      setDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
     }
-  }, [storageKey])
+  }, [storageKey]);
 
   useEffect(() => {
-    const $el = el || document.documentElement
+    const $el = el || document.documentElement;
     if (darkMode) {
-      $el.classList.remove(classNameLight)
-      $el.classList.add(classNameDark)
+      $el.classList.remove(classNameLight);
+      $el.classList.add(classNameDark);
     } else {
-      $el.classList.remove(classNameDark)
-      $el.classList.add(classNameLight)
+      $el.classList.remove(classNameDark);
+      $el.classList.add(classNameLight);
     }
-  }, [classNameDark, classNameLight, darkMode, el])
+  }, [classNameDark, classNameLight, darkMode, el]);
 
   useEffect(() => {
     useMediaDarkStore.setState({
       darkMode,
-    })
-  }, [darkMode])
+    });
+  }, [darkMode]);
 
-  const limitRef = useRef(false)
+  const limitRef = useRef(false);
   if (!limitRef.current) {
-    limitRef.current = true
+    limitRef.current = true;
     useMediaDarkStore.setState({
       toggle: () =>
         setDarkMode((b) => {
           if (storageKey && isClientSide()) {
-            setStorage(storageKey, String(!b))
+            setStorage(storageKey, String(!b));
           }
-          return !b
+          return !b;
         }),
-    })
+    });
   }
-}
+};
 
-export const useIsDark = () => useMediaDarkStore((state) => state.darkMode)
+export const useIsDark = () => useMediaDarkStore((state) => state.darkMode);
 export const useDarkModeSwitch = () => {
   return useMediaDarkStore((state) => state.toggle);
 };
