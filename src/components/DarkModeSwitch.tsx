@@ -1,3 +1,4 @@
+'use client';
 import { Switch } from '@headlessui/react';
 import { useIsDark } from '@/hooks/useDarkMode';
 import { useDarkModeSwitch } from '@/hooks/useDarkMode';
