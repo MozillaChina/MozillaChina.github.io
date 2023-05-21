@@ -37,7 +37,7 @@ export const useDarkMode = (
   // Present, check localStorage and dark Media
   useEffect(() => {
     const presentedDarkMode = storageKey ? getStorage(storageKey) : undefined;
-    console.log(presentedDarkMode);
+
     if (presentedDarkMode !== undefined) {
       if (presentedDarkMode === 'true') {
         setDarkMode(true);
