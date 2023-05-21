@@ -1,3 +1,4 @@
+'use client';
 import logo from '@/assets/logo.jpeg';
 import { Dialog } from '@headlessui/react';
 import { IconX } from '@tabler/icons-react';
@@ -26,8 +27,7 @@ const Header = () => {
             <Image className="h-8 w-auto" alt="logo" src={logo} />
           </a>
           <p className="text-xl">Mozilla 中国社区</p>
-        </div>
-        {/* <div className="flex sm:hidden">
+          {/* <div className="flex sm:hidden">
           <button
             type="button"
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-600"
@@ -48,11 +48,12 @@ const Header = () => {
             </a>
           ))}
         </div> */}
-        {/* <div className="hidden sm:flex sm:flex-1 sm:justify-end">
+          {/* <div className="hidden sm:flex sm:flex-1 sm:justify-end">
           <a href="#" className="text-sm font-semibold leading-6 text-white">
             Log in <span aria-hidden="true">&rarr;</span>
           </a>
         </div> */}
+        </div>
       </nav>
       <Dialog
         as="div"

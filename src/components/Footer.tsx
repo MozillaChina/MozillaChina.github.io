@@ -42,7 +42,6 @@ const Footer = () => {
             <Image className="h-7 w-auto" alt="logo" src={logo} />
             <p className="text-sm leading-6 text-gray-600 dark:text-gray-300">
               我们致力于为构建一个更加多元、开放、公平的互联网贡献自己的力量。欢迎了解我们并成为我们的一员。
-              <i className="icon-[mingcute--sun-line]" />
             </p>
             <div className="flex space-x-6">
               {navigation.social.map((item) => (
