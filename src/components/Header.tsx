@@ -27,6 +27,32 @@ const Header = () => {
             <Image className="h-8 w-auto" alt="logo" src={logo} />
           </a>
           <p className="text-xl">Mozilla 中国社区</p>
+          {/* <div className="flex sm:hidden">
+          <button
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-600"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <IconMenu2 className="h-6 w-6" aria-hidden="true" />
+          </button>
+        </div>
+        <div className="hidden sm:flex sm:gap-x-8 lg:gap-x-12">
+          {navigation.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              className="text-sm font-semibold leading-6"
+            >
+              {item.name}
+            </a>
+          ))}
+        </div> */}
+          {/* <div className="hidden sm:flex sm:flex-1 sm:justify-end">
+          <a href="#" className="text-sm font-semibold leading-6 text-white">
+            Log in <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div> */}
         </div>
       </nav>
       <Dialog
@@ -70,6 +96,14 @@ const Header = () => {
                   </a>
                 ))}
               </div>
+              {/* <div className="py-6">
+                <a
+                  href="#"
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                >
+                  Log in
+                </a>
+              </div> */}
             </div>
           </div>
         </Dialog.Panel>

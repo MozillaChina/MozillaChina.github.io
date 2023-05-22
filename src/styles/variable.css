@@ -1,11 +1,11 @@
 html {
-  --theme-color: var(--auto-theme-color, theme('colors.violet.900'));
+  --theme-color: var(--auto-theme-color, theme('colors.violet.500'));
   accent-color: var(--theme-color);
 }
 
 @media (prefers-color-scheme: dark) {
   html.dark {
     background-color: #000;
-    --theme-color: var(--auto-theme-color, theme('colors.violet.900'));
+    --theme-color: var(--auto-theme-color, theme('colors.violet.500'));
   }
 }
