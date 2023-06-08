@@ -4,6 +4,7 @@ import { Dialog } from '@headlessui/react';
 import { IconX } from '@tabler/icons-react';
 import Image from 'next/image';
 import { useState } from 'react';
+import { IconMenu2 } from '@tabler/icons-react';
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -16,7 +17,7 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="dark:text-white">
+    <header className="bg-always-warmGray-200 sticky top-0 z-10 dark:text-white dark:bg-always-slate-900">
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
         aria-label="Global"
@@ -27,32 +28,35 @@ const Header = () => {
             <Image className="h-8 w-auto" alt="logo" src={logo} />
           </a>
           <p className="text-xl">Mozilla 中国社区</p>
-          {/* <div className="flex sm:hidden">
-          <button
-            type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-600"
-            onClick={() => setMobileMenuOpen(true)}
-          >
-            <span className="sr-only">Open main menu</span>
-            <IconMenu2 className="h-6 w-6" aria-hidden="true" />
-          </button>
-        </div>
-        <div className="hidden sm:flex sm:gap-x-8 lg:gap-x-12">
-          {navigation.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              className="text-sm font-semibold leading-6"
+          <div className="flex sm:hidden">
+            <button
+              type="button"
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-600"
+              onClick={() => setMobileMenuOpen(true)}
             >
-              {item.name}
-            </a>
-          ))}
-        </div> */}
+              <span className="sr-only">Open main menu</span>
+              <IconMenu2 className="h-6 w-6" aria-hidden="true" />
+            </button>
+          </div>
+          <div className="hidden sm:flex sm:gap-x-8 lg:gap-x-12">
+            {navigation.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className="text-sm font-semibold leading-6"
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
           {/* <div className="hidden sm:flex sm:flex-1 sm:justify-end">
-          <a href="#" className="text-sm font-semibold leading-6 text-white">
-            Log in <span aria-hidden="true">&rarr;</span>
-          </a>
-        </div> */}
+            <a
+              href="#"
+              className="text-sm font-semibold leading-6 dark:text-white"
+            >
+              Log in <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div> */}
         </div>
       </nav>
       <Dialog
