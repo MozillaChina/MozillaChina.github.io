@@ -1,4 +1,4 @@
-import { getStorage, setStorage } from '@/lib/storage';
+import { delStorage, getStorage, setStorage } from '@/lib/storage';
 import { isClientSide } from '@/lib/utils';
 import { useEffect, useRef, useState } from 'react';
 import { create } from 'zustand';
@@ -39,14 +39,39 @@ export const useDarkMode = (
     const presentedDarkMode = storageKey ? getStorage(storageKey) : undefined;
 
     if (presentedDarkMode !== undefined) {
-      if (presentedDarkMode === 'true') {
-        setDarkMode(true);
-      } else if (presentedDarkMode === 'false') {
-        setDarkMode(false);
-      }
+      setDarkMode(presentedDarkMode === 'true');
     } else if (typeof initialState === 'undefined') {
       setDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
     }
+  }, [storageKey]);
+
+  useEffect(() => {
+    // if the color scheme is triggered dynamically
+    const handler = (e: MediaQueryListEvent) => {
+      const storageValue = Boolean(getStorage(storageKey));
+      console.log(storageValue);
+      setDarkMode(e.matches);
+
+      // reset dark model
+      if (storageValue === e.matches) delStorage(storageKey);
+    };
+
+    const storageHandler = () => {
+      const storageValue = getStorage(storageKey, true);
+      if (storageValue === undefined) {
+        setDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
+      } else {
+        // switch dark mode together
+        setDarkMode(storageValue === 'true');
+      }
+    };
+
+    return () => {
+      window.addEventListener('storage', storageHandler);
+      window
+        .matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', handler);
+    };
   }, [storageKey]);
 
   useEffect(() => {
